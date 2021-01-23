@@ -1,0 +1,19 @@
+.app-logo {
+  @include flex-row-centered();
+
+  img {
+    width: 35px;
+    height: 35px;
+  }
+
+  span {
+    font-size: 1.2rem;
+    color: $white;
+    font-weight: 600;
+    margin-left: 10px;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
