@@ -8,3 +8,10 @@ export const BUTTON_TYPES = {
   OUTLINED: 'outline',
   FILLED: 'fill'
 }
+
+export const REQUESTS_STATUS = {
+  REQUEST: 'request',
+  SUCCESS: 'success',
+  FAILURE: 'failure',
+  NONE: 'none'
+}
