@@ -8,3 +8,64 @@
   @include flex-row-centered();
   flex-direction: column;
 }
+
+@mixin filled($color) {
+  color: $white;
+  fill: $white;
+  background-color: $color;
+  border-color: $color;
+
+  &:hover {
+    $hover-color: lighten($color, 7%);
+    background-color: $hover-color;
+    border-color: $hover-color;
+  }
+
+  &:disabled {
+    $disabled-color: $white_40;
+    background-color: $disabled-color;
+    border-color: $disabled-color;
+    cursor: unset;
+  }
+
+  &:active {
+    $active-color: darken($color, 7%);
+    background-color: $active-color;
+    border-color: $active-color;
+  }
+}
+
+@mixin outlined($color) {
+  color: $color;
+  border-color: $color;
+  background-color: transparent;
+  fill: $color;
+
+  &.white-bg {
+    background-color: $white;
+  }
+
+  &:hover {
+    color: $white;
+    fill: $white;
+    background-color: $color;
+    border-color: $color;
+  }
+
+  &:active {
+    color: $white;
+    fill: $white;
+    $active-color: darken($color, 7%);
+    background-color: $active-color;
+    border-color: $active-color;
+  }
+
+  &:disabled {
+    $disabled-color: $white_40;
+    cursor: unset;
+    fill: $disabled-color;
+    color: $disabled-color;
+    background-color: transparent;
+    border-color: $disabled-color;
+  }
+}

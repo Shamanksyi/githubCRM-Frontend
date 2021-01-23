@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Button from '../../atoms/button/Button';
 import TextInput from '../../atoms/textInput/TextInput';
 import PageTitle from '../../atoms/pageTitle/PageTitle';
 
@@ -29,6 +30,13 @@ export default function SignInPage({
             autoComplete="current-password"
             tabIndex="2"
           />
+          <Button
+            className="sign-in-btn"
+            color={Button.BLUE}
+            variant={Button.FILL}
+            type="submit"
+            isLoading={false}
+          >Sign In</Button>
         </form>
       </section>
     </main >
