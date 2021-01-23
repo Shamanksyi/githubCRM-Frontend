@@ -1,0 +1,33 @@
+.sign-up-page{
+  &__register-block {
+    width: 30vw;
+    min-width: 300px;
+    padding: 30px;
+    margin: 50px auto;
+    border-radius: $border-radius-default;
+    box-shadow: $box-shadow-default;
+  }
+
+  .sign-up-btn {
+    width: 100%;
+  }
+
+  a {
+    color: $main-background;
+    text-transform: capitalize;
+
+    &:hover {
+      color: lighten($main-background, 7%);
+    }
+  
+    &:active {
+      color: darken($main-background, 7%);
+    }
+  }
+
+  &__have-account {
+    margin-top: 1.25rem;
+    text-align: center;
+    color: $text-lighter;
+  }
+}
