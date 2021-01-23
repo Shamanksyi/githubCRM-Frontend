@@ -1,4 +1,5 @@
 import App from './App';
+import { Provider } from 'react-redux';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router } from 'react-router-dom';
@@ -7,12 +8,13 @@ import './styles/index.scss'
 import './styles/common/_reset.scss'
 
 import { history } from './configuration/history';
+import { store } from './configuration/store';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <Router history={history}>
       <App />
     </Router>
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );

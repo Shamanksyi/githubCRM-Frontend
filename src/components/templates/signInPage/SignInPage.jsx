@@ -5,7 +5,11 @@ import TextInput from '../../atoms/textInput/TextInput';
 import PageTitle from '../../atoms/pageTitle/PageTitle';
 
 export default function SignInPage({
-  handleSubmit = () => console.log('handle submit!')
+  errors = {},
+  handleInputChange,
+  handleSubmit,
+  input = {},
+  isLoading
 }) {
 
   return (
@@ -21,6 +25,9 @@ export default function SignInPage({
             placeholder="Enter email"
             autoComplete="email"
             tabIndex="1"
+            value={input.email}
+            error={errors.email}
+            onChange={handleInputChange}
           />
           <TextInput
             name="password"
@@ -29,13 +36,16 @@ export default function SignInPage({
             placeholder="Enter your password"
             autoComplete="current-password"
             tabIndex="2"
+            value={input.password}
+            error={errors.password}
+            onChange={handleInputChange}
           />
           <Button
             className="sign-in-btn"
             color={Button.BLUE}
             variant={Button.FILL}
             type="submit"
-            isLoading={false}
+            isLoading={isLoading}
           >Sign In</Button>
         </form>
       </section>

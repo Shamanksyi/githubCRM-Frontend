@@ -9,6 +9,14 @@ export const BUTTON_TYPES = {
   FILLED: 'fill'
 }
 
+export const MESSAGES_ERROR_LABELS = {
+  INVALID: 'invalid',
+  LENGTH: 'length',
+  REQUIRED: 'required',
+  INFO: 'info',
+  MATCH: 'match'
+}
+
 export const REQUESTS_STATUS = {
   REQUEST: 'request',
   SUCCESS: 'success',
