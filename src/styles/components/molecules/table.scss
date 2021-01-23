@@ -31,4 +31,21 @@
       }
     }
   }
+
+  &-placeholder {
+    @include flex-row-centered();
+
+    width: 100%;
+    padding: 25px;
+
+    svg {
+      width: 50px;
+    }
+
+    span {
+      color: $text-lighter;
+      font-size: 2rem;
+      text-transform: uppercase;
+    }
+  }
 }

@@ -9,9 +9,12 @@ import {
   fetchUserRepositories
 } from '../../modules/home/homeActions';
 
+import { REQUESTS_STATUS } from '../../configuration/constants';
+
 export default function HomePageComponent() {
   const dispatch = useDispatch();
-  const { userRepos, fetchStatus } = useSelector(homeSelectors.getUserRepos)
+  const { userRepos, fetchStatus } = useSelector(homeSelectors.getUserRepos);
+  const { REQUEST } = REQUESTS_STATUS;
 
   useEffect(() => {
     dispatch(fetchUserRepositories());
@@ -26,6 +29,7 @@ export default function HomePageComponent() {
   return (
     <HomePage
       userRepos={userRepos}
+      isFetching={fetchStatus === REQUEST}
     />
   );
 }

@@ -5,7 +5,8 @@ import PageTitle from '../../atoms/pageTitle/PageTitle';
 import Table from '../../molecules/table/Table';
 
 export default function HomePage({
-  userRepos
+  userRepos,
+  isFetching
 }) {
 
   return (
@@ -17,6 +18,8 @@ export default function HomePage({
         <Table
           columns={['owner', 'name', 'url', 'stars', 'forks', 'issues', 'date']}
           rows={userRepos}
+          placeholderText="No Projects"
+          isLoading={isFetching}
         />
         <div className="home-page__add-project-btn">
           <Button
