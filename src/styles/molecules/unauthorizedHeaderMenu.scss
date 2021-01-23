@@ -1,0 +1,11 @@
+.unauthorized-header-menu {
+  @include flex-row-centered();
+
+  .header-menu-item {
+    margin-right: 25px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

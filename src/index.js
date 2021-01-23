@@ -1,13 +1,18 @@
+import App from './App';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import { Router } from 'react-router-dom';
 
 import './styles/index.scss'
 import './styles/common/_reset.scss'
 
+import { history } from './configuration/history';
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router history={history}>
+      <App />
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );

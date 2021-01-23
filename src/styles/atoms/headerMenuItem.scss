@@ -1,0 +1,20 @@
+.header-menu-item {
+  color: $white;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+
+  &:hover {
+    cursor: pointer;
+    color: $primary-light;
+  }
+
+  &:active {
+    color: $primary;
+  }
+
+  &--active {
+    color: $primary-light;
+  }
+}

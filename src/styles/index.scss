@@ -1,2 +1,31 @@
 @import './common/mixins';
 @import './common/variables';
+
+@import './atoms/headerMenuItem.scss';
+
+@import './molecules/unauthorizedHeaderMenu.scss';
+
+@import './templates/wrappers/header.scss';
+
+body {
+  font-family: Arial !important;
+
+  &.stop-scrolling {
+    height: 100%; 
+    overflow: hidden;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.container {
+  max-width: 1380px;
+}
+
+a {
+  &:focus {
+    outline: none;
+  }
+}
