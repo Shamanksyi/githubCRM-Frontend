@@ -6,6 +6,8 @@ import Header from './Header';
 import { pushLogout } from '../../../../modules/auth/authActions';
 
 import AuthService from '../../../../services/AuthService';
+import { history } from '../../../../configuration/history';
+import router from '../../../../configuration/routing';
 
 export default function HeaderComponent() {
   const dispatch = useDispatch();
@@ -13,6 +15,7 @@ export default function HeaderComponent() {
 
   const handleSignOut = useCallback(() => {
     dispatch(pushLogout());
+    history.push(router().login);
 
   }, [dispatch]);
 

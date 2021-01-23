@@ -1,6 +1,7 @@
 import { all, call, put, select, takeLatest } from 'redux-saga/effects';
 
 import AuthService from '../../services/AuthService';
+import NotificationService from '../../services/NotificationService';
 
 import { authSelectors } from './authSelectors';
 import { pushLogin, pushLogout, pushRegister } from './authActions';
@@ -19,14 +20,14 @@ function* pushLoginWorker() {
 
       yield call(AuthService.saveUserToken, { token });
       yield put(pushLogin.success());
-
       return;
     }
 
     yield put(pushLogin.failure(errors));
 
   } catch (error) {
-    console.log('error!');
+    NotificationService.error(error.message);
+    yield put(pushLogin.failure());
   }
 }
 
@@ -36,7 +37,8 @@ function* pushLogoutWorker() {
     yield call(AuthService.signOut);
     yield put(pushLogout.success());
   } catch (error) {
-    console.log('error!')
+    NotificationService.error(error.message);
+    yield put(pushLogin.failure());
   }
 }
 
@@ -44,6 +46,8 @@ function* pushRegisterWorker() {
   try {
     console.log('register!')
   } catch (error) {
+    NotificationService.error(error.message);
+    yield put(pushLogin.failure());
   }
 }
 

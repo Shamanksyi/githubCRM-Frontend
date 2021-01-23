@@ -34,6 +34,6 @@ export default class AuthService {
   }
 
   static signOut() {
-    localStorage.removeItem("token");
+    localStorage.removeItem('token');
   }
 }
