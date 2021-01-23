@@ -3,7 +3,7 @@ import { all, call, put, takeLatest } from 'redux-saga/effects';
 import NotificationService from '../../services/NotificationService';
 import ProjectsService from '../../services/ProjectsService';
 
-import { fetchUserRepositories, removeProject, updateProject } from './homeActions';
+import { addProject, fetchUserRepositories, removeProject, updateProject } from './homeActions';
 
 function* fetchUserReposWorker() {
   try {
@@ -14,6 +14,16 @@ function* fetchUserReposWorker() {
   } catch (error) {
     NotificationService.error(error.message);
     yield put(fetchUserRepositories.failure());
+  }
+}
+
+function* addProjectWorker() {
+  try {
+    yield put(addProject.request());
+
+  } catch (error) {
+    NotificationService.error(error.message);
+    yield put(addProject.failure());
   }
 }
 
@@ -42,6 +52,7 @@ function* updateProjectWorker({ payload: project }) {
 export function* homeWatcher() {
   yield all([
     takeLatest(fetchUserRepositories.TRIGGER, fetchUserReposWorker),
+    takeLatest(addProject.TRIGGER, addProjectWorker),
     takeLatest(removeProject.TRIGGER, removeProjectWorker),
     takeLatest(updateProject.TRIGGER, updateProjectWorker),
   ])

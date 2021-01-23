@@ -1,5 +1,6 @@
 import React from 'react';
 
+import AddProjectModal from '../../templates/addProjectModal/AddProjectModal';
 import Button from '../../atoms/button/Button';
 import ConfirmModal from '../../templates/confirmModal/ConfirmModal';
 import PageTitle from '../../atoms/pageTitle/PageTitle';
@@ -7,13 +8,20 @@ import Table from '../../molecules/table/Table';
 
 export default function HomePage({
   userRepos,
+  isAdding,
   isFetching,
   isRemoving,
   isUpdating,
+  handleInputChange,
+  handleAddProject,
+  handleAddProjectSubmit,
   handleRemoveProject,
   handleRemoveProjectSubmit,
   handleUpdateProject,
+  newProjectErrors,
+  newProjectPath,
   projectForUpdate,
+  showAddProject,
   showRemoveConfirm
 }) {
 
@@ -38,6 +46,7 @@ export default function HomePage({
             <Button
               color={Button.BLUE}
               variant={Button.OUTLINE}
+              onClick={handleAddProject}
             >Add Project</Button>
           </div>
         </section>
@@ -49,6 +58,16 @@ export default function HomePage({
           title="Are you sure you want to remove project?"
           sumbitButtonTitle="Remove"
           isLoading={isRemoving}
+        />
+      )}
+      {!!showAddProject && (
+        <AddProjectModal
+          errors={newProjectErrors}
+          handleModal={handleAddProject}
+          handleSubmit={handleAddProjectSubmit}
+          isLoading={isAdding}
+          onInputChange={handleInputChange}
+          repoPath={newProjectPath}
         />
       )}
     </>

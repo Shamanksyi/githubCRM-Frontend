@@ -1,0 +1,27 @@
+.add-project-modal {
+  .input__block {
+    margin-bottom: 0;
+    margin: 0 5px;
+  }
+
+  &__project-row {
+    @include flex-row-centered();
+  }
+
+  &__subtitle {
+    font-size: 1rem;
+    color: $main-text-color;
+    text-align: center;
+  }
+
+  .m-btn-list {
+    position: relative;
+  }
+
+  &__errors-block {
+    position: absolute;
+    top: -30px;
+    color: $alert-red;
+    font-size: 1rem;
+  }
+}
