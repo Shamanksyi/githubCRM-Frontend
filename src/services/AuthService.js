@@ -1,6 +1,13 @@
 import jwt_decode from "jwt-decode";
 
 export default class AuthService {
+  static isAuth() {
+    const token = localStorage.getItem("token");
+
+    if (token) return true;
+
+    return false;
+  }
 
   static isTokenExpired() {
     const token = localStorage.getItem("token");
@@ -28,6 +35,5 @@ export default class AuthService {
 
   static signOut() {
     localStorage.removeItem("token");
-    localStorage.removeItem('email');
   }
 }

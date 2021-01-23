@@ -32,9 +32,11 @@ function* pushLoginWorker() {
 
 function* pushLogoutWorker() {
   try {
-    console.log('logout!')
+    yield put(pushLogout.request());
+    yield call(AuthService.signOut);
+    yield put(pushLogout.success());
   } catch (error) {
-
+    console.log('error!')
   }
 }
 
