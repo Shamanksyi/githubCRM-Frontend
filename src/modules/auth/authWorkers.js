@@ -7,6 +7,7 @@ import { authSelectors } from './authSelectors';
 import { pushLogin, pushLogout, pushRegister } from './authActions';
 
 import validateLogin from '../../utils/validation/blocks/validateLogin';
+import validateRegister from '../../utils/validation/blocks/validateRegister';
 
 function* pushLoginWorker() {
   try {
@@ -44,7 +45,21 @@ function* pushLogoutWorker() {
 
 function* pushRegisterWorker() {
   try {
-    console.log('register!')
+    yield put(pushRegister.request());
+
+    const { input } = yield select(authSelectors.getRegister);
+    const { isValid, errors } = validateRegister(input);
+
+    if (isValid) {
+      yield call(AuthService.signUp, input);
+
+      NotificationService.success('The account was created!');
+      yield put(pushRegister.success());
+      return;
+    }
+
+    yield put(pushRegister.failure(errors));
+
   } catch (error) {
     NotificationService.error(error.message);
     yield put(pushLogin.failure());

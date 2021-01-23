@@ -29,6 +29,11 @@ export default class AuthService {
     return { token: 'FAKE TOKEN' }
   }
 
+  static signUp({ email, password }) {
+    
+    return { result: 'REGISTER SUCCESS!' }
+  }
+
   static saveUserToken({ token }) {
     localStorage.setItem('token', token);
   }
