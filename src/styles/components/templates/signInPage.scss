@@ -1,0 +1,10 @@
+.sign-in-page{
+  &__login-block {
+    width: 30vw;
+    min-width: 300px;
+    padding: 30px;
+    margin: 50px auto;
+    border-radius: $border-radius-default;
+    box-shadow: $box-shadow-default;
+  }
+}

@@ -1,13 +1,15 @@
 @import './common/mixins';
 @import './common/variables';
 
-@import './atoms/headerMenuItem.scss';
-@import './atoms/logo.scss';
+@import './components/atoms/headerMenuItem.scss';
+@import './components/atoms/logo.scss';
+@import './components/atoms/pageTitle.scss';
 
-@import './molecules/unauthorizedHeaderMenu.scss';
+@import './components/molecules/unauthorizedHeaderMenu.scss';
 
-@import './templates/wrappers/header.scss';
-@import './templates/wrappers/footer.scss';
+@import './components/templates/signInPage.scss';
+@import './components/templates/wrappers/header.scss';
+@import './components/templates/wrappers/footer.scss';
 
 body {
   font-family: Arial !important;
@@ -27,6 +29,11 @@ body {
   margin: 75px auto 0px;
   min-height: calc(100vh - 75px);
   padding: 10px 20px;
+
+  .page-title {
+    margin-top: 2vh;
+    text-align: center;
+  }
 }
 
 a {
