@@ -1,3 +1,6 @@
 .home-page {
-  
+  &__add-project-btn {
+    display: flex;
+    justify-content: flex-end;
+  }
 }

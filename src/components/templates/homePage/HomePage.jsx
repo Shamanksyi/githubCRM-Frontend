@@ -1,8 +1,12 @@
 import React from 'react';
 
+import Button from '../../atoms/button/Button';
 import PageTitle from '../../atoms/pageTitle/PageTitle';
+import Table from '../../molecules/table/Table';
 
-export default function HomePage() {
+export default function HomePage({
+  userRepos
+}) {
 
   return (
     <main className="home-page">
@@ -10,6 +14,16 @@ export default function HomePage() {
         <PageTitle>
           Github Repositories
         </PageTitle>
+        <Table
+          columns={['owner', 'name', 'url', 'stars', 'forks', 'issues', 'date']}
+          rows={userRepos}
+        />
+        <div className="home-page__add-project-btn">
+          <Button
+            color={Button.BLUE}
+            variant={Button.OUTLINE}
+          >Add Project</Button>
+        </div>
       </section>
     </main >
   )

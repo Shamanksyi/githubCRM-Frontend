@@ -1,11 +1,13 @@
 import { combineReducers } from 'redux';
 
 import { auth } from './modules/auth/authReducers';
+import { home } from './modules/home/homeReducers';
 
 import { pushLogout } from './modules/auth/authActions';
 
 const appReducer = combineReducers({
-  auth
+  auth,
+  home
 });
 
 export default function rootReducer(state, action) {
