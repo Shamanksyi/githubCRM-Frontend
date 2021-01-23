@@ -1,0 +1,44 @@
+.footer {
+  background-color: $main-background;
+
+  &__wrapper {
+    padding: 0 20px;
+    margin: 0 auto;
+    max-width: $max-width-default;
+  }
+
+  &__info-block {
+    display: flex;
+    padding: 20px 0px;
+  }
+
+  &__info-links {
+    @include flex-row-centered();
+
+    justify-content: space-around;
+    flex-grow: 1;
+
+    span {
+      color: $white;
+      margin: 5px 0;
+
+      &:hover {
+        color: $primary-light;
+        cursor: pointer;
+      }
+    }
+
+    @media screen and (max-width: $tabletsScreen) {
+      @include flex-column-centered();
+      align-items: flex-end;
+    }
+  }
+
+  &__rights-block {
+    text-align: center;
+    padding: 20px 0px;
+    border-top: 1px solid $white;
+    color: $white;
+    font-size: 1rem;
+  }
+}

@@ -8,7 +8,7 @@ export default function Header() {
 
   return (
     <header className="header">
-      <section className="header__wrapper container">
+      <section className="header__wrapper">
         <Logo />
         <div className="header__controls-panel">
           <UnauthorizedHeaderMenu />
