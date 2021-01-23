@@ -21,4 +21,14 @@ export default class ProjectsService {
       }
     ]
   }
+
+  static removeProject(project) {
+    console.log(project);
+    return;
+  }
+
+  static updateProject(project) {
+    console.log(project);
+    return;
+  }
 }

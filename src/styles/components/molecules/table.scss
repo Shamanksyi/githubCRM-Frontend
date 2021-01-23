@@ -25,9 +25,10 @@
       width: 100%;
       padding: 2px;
       border-width: 0.5px;
+      margin-bottom: 5px;
 
-      &:first-child {
-        margin-bottom: 5px;
+      &:last-child {
+        margin-bottom: 0;
       }
     }
   }

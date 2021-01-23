@@ -9,6 +9,15 @@ export const BUTTON_TYPES = {
   FILLED: 'fill'
 }
 
+export const EVENT_LISTENERS = {
+  CLICK: 'click',
+  KEY_DOWN: 'keydown'
+}
+
+export const KEYBOARD_KEYS = {
+  ESCAPE: "Escape"
+}
+
 export const MESSAGES_ERROR_LABELS = {
   INVALID: 'invalid',
   LENGTH: 'length',
@@ -16,6 +25,8 @@ export const MESSAGES_ERROR_LABELS = {
   INFO: 'info',
   MATCH: 'match'
 }
+
+export const REACT_ROOT = 'root';
 
 export const REQUESTS_STATUS = {
   REQUEST: 'request',

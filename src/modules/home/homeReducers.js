@@ -21,6 +21,8 @@ const userRepos = handleActions(
 const userReposReducer = combineReducers({
   userRepos,
   fetchStatus: makeStatusWithResetReducer(actions.fetchUserRepositories, actions.clearAll),
+  removeStatus: makeStatusWithResetReducer(actions.removeProject, actions.clearAll),
+  updateStatus: makeStatusWithResetReducer(actions.updateProject, actions.clearAll),
 });
 
 export const home = combineReducers({

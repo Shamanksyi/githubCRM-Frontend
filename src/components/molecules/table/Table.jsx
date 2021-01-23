@@ -6,9 +6,13 @@ import { SvgLoader } from '../../atoms/loader/Loader';
 export default function Table({
   className,
   columns,
+  isFetching,
+  isUpdating,
   placeholderText = "Placeholder Text",
+  projectForUpdate,
   rows,
-  isLoading = false,
+  removeCallback,
+  updateCallback
 }) {
   const classes = ['table'];
 
@@ -40,20 +44,25 @@ export default function Table({
                   className="sign-up-btn"
                   color={Button.GRAY}
                   variant={Button.OUTLINE}
+                  onClick={() => updateCallback(row)}
+                  isLoading={isUpdating && projectForUpdate === row.name}
+                  disabled={isUpdating}
                 >Update</Button>
                 <Button
                   className="sign-up-btn"
                   color={Button.RED}
                   variant={Button.OUTLINE}
+                  onClick={() => removeCallback(row)}
+                  disabled={isUpdating && projectForUpdate === row.name}
                 >Remove</Button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-      {(!!isLoading || !rows.length) && (
+      {(!!isFetching || !rows.length) && (
         <div className="table-placeholder">
-          {isLoading ?
+          {isFetching ?
             <SvgLoader /> :
             <span>{placeholderText}</span>
           }
