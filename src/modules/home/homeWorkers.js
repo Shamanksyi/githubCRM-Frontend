@@ -1,9 +1,12 @@
-import { all, call, put, takeLatest } from 'redux-saga/effects';
+import { all, call, put, select, takeLatest } from 'redux-saga/effects';
 
 import NotificationService from '../../services/NotificationService';
 import ProjectsService from '../../services/ProjectsService';
 
+import { homeSelectors } from './homeSelectors';
 import { addProject, fetchUserRepositories, removeProject, updateProject } from './homeActions';
+
+import validateAddProject from '../../utils/validation/blocks/validateAddProject';
 
 function* fetchUserReposWorker() {
   try {
@@ -20,6 +23,17 @@ function* fetchUserReposWorker() {
 function* addProjectWorker() {
   try {
     yield put(addProject.request());
+
+    const { newProjectPath } = yield select(homeSelectors.getNewProject);
+
+    const { isValid, errors } = validateAddProject({ repoPath: newProjectPath });
+
+    if (isValid) {
+      console.log('valid!')
+      return;
+    }
+
+    yield put(addProject.failure(errors));
 
   } catch (error) {
     NotificationService.error(error.message);

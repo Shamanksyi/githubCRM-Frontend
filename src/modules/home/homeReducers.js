@@ -35,6 +35,9 @@ const newProjectPath = handleActions(
 
 const newProjectErrors = handleActions(
   {
+    [actions.addProject.FAILURE](state, { payload }) {
+      return payload;
+    },
     [actions.clearAddProject.TRIGGER]() {
       return {};
     },

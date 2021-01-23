@@ -31,7 +31,7 @@ export default function CreateProjectModalWindow({
         </div>
       </div>
       <div className="m-btn-list">
-        {errors.projectName && (
+        {errors.repoPath && (
           <p className="add-project-modal__errors-block">*{errors.repoPath}</p>
         )}
         <Button
