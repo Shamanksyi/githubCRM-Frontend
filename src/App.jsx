@@ -20,7 +20,7 @@ export default function App() {
         bodyClassName="custom-toast__body"
         hideProgressBar
         position={toast.POSITION.TOP_RIGHT}
-        autoClose={40000}
+        autoClose={4000}
       />
       <Switch>
         <AuthRoute exact path={routing().home} component={HomePageComponent} />

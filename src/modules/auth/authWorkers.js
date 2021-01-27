@@ -62,7 +62,7 @@ function* pushRegisterWorker() {
 
   } catch (error) {
     NotificationService.error(error);
-    yield put(pushLogin.failure());
+    yield put(pushRegister.failure());
   }
 }
 
