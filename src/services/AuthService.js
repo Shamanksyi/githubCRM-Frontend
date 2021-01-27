@@ -1,3 +1,4 @@
+import api from './api';
 import jwt_decode from "jwt-decode";
 
 export default class AuthService {
@@ -11,9 +12,6 @@ export default class AuthService {
 
   static isTokenExpired() {
     const token = localStorage.getItem("token");
-
-    if (token === 'FAKE TOKEN') return false;
-
     const decodedPayload = jwt_decode(token);
 
     if (!!decodedPayload && decodedPayload.exp > Date.now() / 1000) {
@@ -26,12 +24,17 @@ export default class AuthService {
   }
 
   static signIn({ email, password }) {
-    return { token: 'FAKE TOKEN' }
+    return api.post("/user/login", {
+      email,
+      password
+    });
   }
 
   static signUp({ email, password }) {
-    
-    return { result: 'REGISTER SUCCESS!' }
+    return api.post("/user/register", {
+      email,
+      password
+    });
   }
 
   static saveUserToken({ token }) {

@@ -15,7 +15,7 @@ function* fetchUserReposWorker() {
 
     yield put(fetchUserRepositories.success(repositories));
   } catch (error) {
-    NotificationService.error(error.message);
+    NotificationService.error(error);
     yield put(fetchUserRepositories.failure());
   }
 }
@@ -36,7 +36,7 @@ function* addProjectWorker() {
     yield put(addProject.failure(errors));
 
   } catch (error) {
-    NotificationService.error(error.message);
+    NotificationService.error(error);
     yield put(addProject.failure());
   }
 }
@@ -47,7 +47,7 @@ function* removeProjectWorker({ payload: project }) {
     yield call(ProjectsService.removeProject, project);
 
   } catch (error) {
-    NotificationService.error(error.message);
+    NotificationService.error(error);
     yield put(removeProject.failure());
   }
 }
@@ -58,7 +58,7 @@ function* updateProjectWorker({ payload: project }) {
     yield call(ProjectsService.updateProject, project);
 
   } catch (error) {
-    NotificationService.error(error.message);
+    NotificationService.error(error);
     yield put(updateProject.failure());
   }
 }

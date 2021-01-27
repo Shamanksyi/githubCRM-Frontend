@@ -17,7 +17,7 @@ function* pushLoginWorker() {
     const { isValid, errors } = validateLogin(input);
 
     if (isValid) {
-      const { token } = yield call(AuthService.signIn, input);
+      const { result: { token } } = yield call(AuthService.signIn, input);
 
       yield call(AuthService.saveUserToken, { token });
       yield put(pushLogin.success());
@@ -27,7 +27,7 @@ function* pushLoginWorker() {
     yield put(pushLogin.failure(errors));
 
   } catch (error) {
-    NotificationService.error(error.message);
+    NotificationService.error(error);
     yield put(pushLogin.failure());
   }
 }
@@ -38,7 +38,7 @@ function* pushLogoutWorker() {
     yield call(AuthService.signOut);
     yield put(pushLogout.success());
   } catch (error) {
-    NotificationService.error(error.message);
+    NotificationService.error(error);
     yield put(pushLogin.failure());
   }
 }
@@ -61,7 +61,7 @@ function* pushRegisterWorker() {
     yield put(pushRegister.failure(errors));
 
   } catch (error) {
-    NotificationService.error(error.message);
+    NotificationService.error(error);
     yield put(pushLogin.failure());
   }
 }
