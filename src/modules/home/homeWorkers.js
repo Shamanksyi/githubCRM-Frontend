@@ -50,7 +50,7 @@ function* removeProjectWorker({ payload: project }) {
   try {
     yield put(removeProject.request());
     yield call(ProjectsService.removeProject, project);
-
+    yield put(removeProject.success());
   } catch (error) {
     NotificationService.error(error);
     yield put(removeProject.failure());
@@ -61,7 +61,7 @@ function* updateProjectWorker({ payload: project }) {
   try {
     yield put(updateProject.request());
     yield call(ProjectsService.updateProject, project);
-
+    yield put(updateProject.success());
   } catch (error) {
     NotificationService.error(error);
     yield put(updateProject.failure());

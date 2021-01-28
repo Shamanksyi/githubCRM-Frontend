@@ -15,6 +15,7 @@ import {
   updateProject
 } from '../../modules/home/homeActions';
 
+import NotificationService from '../../services/NotificationService';
 import { REQUESTS_STATUS } from '../../configuration/constants';
 
 export default function HomePageComponent() {
@@ -51,6 +52,8 @@ export default function HomePageComponent() {
   useEffect(() => {
     if (updateStatus === SUCCESS) {
       setProjectForUpdate(null);
+      dispatch(fetchUserRepositories());
+      NotificationService.success("Project data was updated!");
     }
 
     //eslint-disable-next-line
@@ -60,6 +63,7 @@ export default function HomePageComponent() {
     if (removeStatus === SUCCESS) {
       setShowRemoveConfirm(false);
       setProjectForRemove(null);
+      dispatch(fetchUserRepositories());
     }
 
     //eslint-disable-next-line

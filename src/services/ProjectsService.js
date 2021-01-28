@@ -8,13 +8,11 @@ export default class ProjectsService {
     return api.post("/project/create", { repoPath });
   }
 
-  static removeProject(project) {
-    console.log(project);
-    return;
+  static removeProject({ id }) {
+    return api.delete(`/project/delete/${id}`);
   }
 
-  static updateProject(project) {
-    console.log(project);
-    return;
+  static updateProject({ id }) {
+    return api.post(`/project/update/${id}`);
   }
 }
