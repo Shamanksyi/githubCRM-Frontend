@@ -11,9 +11,13 @@ import validateAddProject from '../../utils/validation/blocks/validateAddProject
 function* fetchUserReposWorker() {
   try {
     yield put(fetchUserRepositories.request());
-    const repositories = yield call(ProjectsService.fetchUserRepos);
+    const { result } = yield call(ProjectsService.fetchUserRepos);
 
-    yield put(fetchUserRepositories.success(repositories));
+    result.forEach(repo => {
+      repo.date = new Date(repo.create_date).toDateString();
+    })
+
+    yield put(fetchUserRepositories.success(result));
   } catch (error) {
     NotificationService.error(error);
     yield put(fetchUserRepositories.failure());
@@ -29,7 +33,8 @@ function* addProjectWorker() {
     const { isValid, errors } = validateAddProject({ repoPath: newProjectPath });
 
     if (isValid) {
-      console.log('valid!')
+      yield call(ProjectsService.addProject, newProjectPath);
+      yield put(addProject.success());
       return;
     }
 

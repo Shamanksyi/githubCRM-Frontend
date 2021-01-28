@@ -42,6 +42,7 @@ export default function HomePageComponent() {
       setShowAddProject(false);
       dispatch(clearAddProjectFieldErrors());
       dispatch(clearAddProject());
+      dispatch(fetchUserRepositories());
     }
 
     //eslint-disable-next-line

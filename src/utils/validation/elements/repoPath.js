@@ -20,5 +20,13 @@ export default function repoPath({ field = "repoPath", value }) {
     errors[field] = message[LENGTH];
   }
 
+  if (value) {
+    const repoParts = value.split('/');
+    const message = "Invalid repo path";
+
+    if (repoParts.length !== 2) errors[field] = message;
+    if (!repoParts[0] || !repoParts[1]) errors[field] = message;
+  }
+
   return errors;
 }
