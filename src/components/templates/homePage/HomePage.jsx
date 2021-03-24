@@ -6,6 +6,8 @@ import ConfirmModal from '../../templates/confirmModal/ConfirmModal';
 import PageTitle from '../../atoms/pageTitle/PageTitle';
 import Table from '../../molecules/table/Table';
 
+import { GITHUB_CRM_TABLE_COLUMNS } from '../../../configuration/constants';
+
 export default function HomePage({
   userRepos,
   isAdding,
@@ -24,7 +26,7 @@ export default function HomePage({
   showAddProject,
   showRemoveConfirm
 }) {
-
+  
   return (
     <>
       <main className="home-page">
@@ -33,7 +35,7 @@ export default function HomePage({
             Github Repositories
         </PageTitle>
           <Table
-            columns={['owner', 'name', 'url', 'stars', 'forks', 'issues', 'date']}
+            columns={GITHUB_CRM_TABLE_COLUMNS}
             rows={userRepos}
             placeholderText="No Projects"
             projectForUpdate={projectForUpdate}

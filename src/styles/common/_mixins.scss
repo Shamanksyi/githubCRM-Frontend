@@ -69,3 +69,17 @@
     border-color: $disabled-color;
   }
 }
+
+@mixin horizontal-scroll {
+  &::-webkit-scrollbar {
+    height: 0.2em;
+  }
+   
+  &::-webkit-scrollbar-track {
+    background-color: rgba($color: $white, $alpha: 0);
+  }
+   
+  &::-webkit-scrollbar-thumb {
+    background-color: $main-background;
+  }
+}

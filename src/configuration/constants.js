@@ -20,6 +20,17 @@ export const KEYBOARD_KEYS = {
   ESCAPE: "Escape"
 }
 
+export const GITHUB_CRM_TABLE_COLUMNS = [
+  'owner',
+  'name',
+  'url',
+  'stars',
+  'forks',
+  'issues',
+  'date',
+  'controls'
+]
+
 export const MESSAGES_ERROR_LABELS = {
   INVALID: 'invalid',
   LENGTH: 'length',
